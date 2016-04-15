@@ -1,0 +1,30 @@
+{
+  "name": "strangely-attracted",
+  "version": "0.0.0",
+  "description": "Visualize PRNG.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vattay/strangely-attracted.git"
+  },
+  "keywords": [
+    "random",
+    "visualize",
+    "prng"
+  ],
+  "author": "Anton Vattay <anton.vattay@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vattay/strangely-attracted/issues"
+  },
+  "homepage": "https://github.com/vattay/strangely-attracted#readme"
+}
