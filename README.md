@@ -1,9 +1,10 @@
 # strangely-attracted
-A half-baked port of Michal Zalewski's initial sequence number strange attractor visualizer using three.js and some python hackery.
+A half-baked port of [Michal Zalewski's](http://lcamtuf.coredump.cx/oldtcp/tcpseq.html) initial sequence number strange attractor visualizer using three.js and some python hackery.
 
 # Visualize
-* Install NPM
-* Install ws
+## Install node
+... platform specific
+## Install ws
 ``` npm install -g local-web-server ```
 
 ## Run ws
