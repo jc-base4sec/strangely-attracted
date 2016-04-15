@@ -12,14 +12,14 @@
 #
 
 
-if [ "$2" = "" ]; then
-  echo "Usage: host open_port"
+if [ "$3" = "" ]; then
+  echo "Usage: host open_port output_file"
   echo
   exit 1
 fi
 
 ( tcpdump -vv -n "tcp and src host $1 and src port $2" \
-| grep "S\." | awk -F',' '{print $3}' | awk -F' ' '{print $2}' >sequence_log.txt ) &
+| grep "S\." | awk -F',' '{print $3}' | awk -F' ' '{print $2}' >$3 ) &
 
 sleep 1
 
