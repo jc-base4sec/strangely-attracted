@@ -9,86 +9,10 @@
 		</style>
 	</head>
 	<body>
+        <script src="bower_components/dat-gui/build/dat.gui.js"></script>
 		<script src="bower_components/three.js/build/three.min.js"></script>
 		<script src="bower_components/papaparse/papaparse.min.js"></script>
 		<script src="bower_components/jQuery/dist/jquery.min.js"></script>
-		<script>
-            var scene = new THREE.Scene();
-            var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
-            var renderer = new THREE.WebGLRenderer();
-
-            var particles = new THREE.Geometry();
-
-            function init(coordinates){
-                renderer.setSize( window.innerWidth, window.innerHeight );
-                document.body.appendChild( renderer.domElement );
-
-
-                for (var coordinate of coordinates.data) {
-                    particles.vertices.push(
-                        new THREE.Vector3(coordinate[0]/65536/6553,
-                                coordinate[1]/65536/6553,
-                                coordinate[2]/65536/6553)
-                    );
-                }
-
-                var material = new THREE.PointsMaterial( {
-                    color: 0xaaff55,
-                    size: 0.001,
-                    blending: THREE.NormalBlending
-                } );
-                var point = new THREE.Points( particles, material );
-                scene.add( point );
-
-                camera.position.z = 30;
-            }
-
-            function render() {
-                requestAnimationFrame( render );
-                renderer.render( scene, camera );
-            }
-
-            Papa.parse("data/chromecast_coords.csv", {
-                download: true,
-                complete: function(results) {
-                    init(results);
-                    render();
-                }
-            });
-
-            /* */
-            var isDragging = false;
-            var previousMousePosition = {
-                x: 0,
-                y: 0
-            };
-            $(renderer.domElement).on('mousedown', function(e) {
-                isDragging = true;
-            })
-            .on('mousemove', function(e) {
-                var deltaMove = {
-                    x: e.offsetX-previousMousePosition.x,
-                    y: e.offsetY-previousMousePosition.y
-                };
-
-                if(isDragging) {
-
-                    particles.rotateY(deltaMove.x/10);
-                    particles.rotateX(deltaMove.y/10)
-                }
-
-                previousMousePosition = {
-                    x: e.offsetX,
-                    y: e.offsetY
-                };
-            });
-            /* */
-
-            $(document).on('mouseup', function(e) {
-                isDragging = false;
-            });
-
-		</script>
+        <script src="js/sa.js"></script>
 	</body>
 </html>
